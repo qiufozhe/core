@@ -258,6 +258,8 @@ class User implements IUser {
 			if ($result) {
 				if ($this->emitter) {
 					$this->emitter->emit('\OC\User', 'postSetPassword', [$this, $password, $recoveryPassword]);
+					$event = new GenericEvent(null, ['user' => $this]);
+					$this->eventDispatcher->dispatch('\OC\User\User::post_setPassword', $event);
 				}
 				$this->config->deleteUserValue($this->getUID(), 'owncloud', 'lostpassword');
 			}
