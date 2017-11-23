@@ -172,7 +172,7 @@ services:
         DB_TYPE: postgres
 
   external_owncloud:
-    image: owncloud/server:master
+    image: owncloud/server:latest
     when:
       matrix:
         FILES_EXTERNAL_TYPE: webdav
