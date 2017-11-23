@@ -58,7 +58,7 @@ fi
 
 case "${FILES_EXTERNAL_TYPE}" in
     webdav)
-      wait-for-it -t 60 owncloud_external:80
+      wait-for-it -t 300 owncloud_external:80
        cat > config/config.webdav.php <<DELIM
  <?php
  return array(
